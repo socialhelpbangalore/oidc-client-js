@@ -230,15 +230,15 @@ export class ResponseValidator {
             return this._processCode(state, response);
         }
 
-        if (response.id_token) {
-            if (response.access_token) {
-                Log.debug("ResponseValidator._validateTokens: Validating id_token and access_token");
-                return this._validateIdTokenAndAccessToken(state, response);
-            }
+        // if (response.id_token) {
+        //     if (response.access_token) {
+        //         Log.debug("ResponseValidator._validateTokens: Validating id_token and access_token");
+        //         return this._validateIdTokenAndAccessToken(state, response);
+        //     }
 
-            Log.debug("ResponseValidator._validateTokens: Validating id_token");
-            return this._validateIdToken(state, response);
-        }
+        //     Log.debug("ResponseValidator._validateTokens: Validating id_token");
+        //     return this._validateIdToken(state, response);
+        // }
 
         Log.debug("ResponseValidator._validateTokens: No code to process or id_token to validate");
         return Promise.resolve(response);
